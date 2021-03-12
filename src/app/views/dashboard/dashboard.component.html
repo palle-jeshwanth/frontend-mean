@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Number</th>
+                <th>update</th>
+                <th>delete</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let user of myData; let i = index">
+                <td>{{ i + 1 }}</td>
+                <td>{{ user.name }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.phone }}</td>
+                <td><button class="btn btn-warning">U</button></td>
+                <td>
+                  <button class="btn btn-danger" (click)="deleteUser(user._id)">
+                    X
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

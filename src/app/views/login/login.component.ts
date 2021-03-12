@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { AuthService } from 'src/app/providers/auth.service';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -7,9 +10,45 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+   user:any ={
+    email: '',
+    password : ''
+  }
+  log_res:any={
+    code:0,
+    message : ''
+  }
+  everify:boolean = false;
+  constructor(private _authService:AuthService, private _route:Router) { }
 
   ngOnInit(): void {
+
   }
+
+  login(){
+    this._authService.login(this.user).subscribe((res)=>{
+      const result = res
+      if(result.code){
+        sessionStorage.setItem('authToken',result.data)
+        this._route.navigate(['dashboard']);
+      }
+      
+   })
+   
+   
+  }
+
+  register(){
+    this._route.navigate(['register'])
+  }
+
+  passVerify(obj:any){ 
+    console.log(obj)
+    this.everify = !this.everify
+    if(obj.code){
+      this._route.navigate(['dashboard'])
+    }
+  }
+
 
 }

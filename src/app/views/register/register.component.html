@@ -1,30 +1,66 @@
 <div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card" style="width: 30rem;">
-                <div class="card-header">
-                    <h6>Register</h6>
-                </div>
-                <div class="card-body">
-                    <form (ngSubmit)="register(f)" #f="ngForm">
-                        <div class="form-group mb-3">
-                            <input type="text" name="name" ngModel placeholder="Name" class="form-control">
-                        </div>
-                        <div class="form-group mb-3">
-                            <input type="text" name="email" ngModel placeholder="Emial" class="form-control">
-                        </div>
-                        <div class="form-group mb-3">
-                            <input type="text" name="phone" ngModel placeholder="Phone" class="form-control">
-                        </div>
-                        <div class="form-group mb-3">
-                           <button type="submit" class="form-control btn btn-primary btn-sm">
-                               Register
-                           </button>
-                        </div>
-                    </form>
-                </div>
-                
-            </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card" style="width: 30rem">
+        <div class="card-header">
+          <h6>Register</h6>
         </div>
+        <div class="card-body">
+          <form (ngSubmit)="register(f)" #f="ngForm">
+            <div class="form-group mb-3">
+              <input
+                type="text"
+                name="name"
+                ngModel
+                placeholder="Name"
+                class="form-control"
+              />
+            </div>
+            <div class="form-group mb-3">
+              <input
+                type="text"
+                name="email"
+                ngModel
+                placeholder="Email"
+                class="form-control"
+              />
+            </div>
+            <div class="form-group mb-3">
+              <input
+                type="password"
+                name="password"
+                ngModel
+                placeholder="Password"
+                class="form-control"
+              />
+            </div>
+            <div class="form-group mb-3">
+              <input
+                type="text"
+                name="phone"
+                ngModel
+                placeholder="Phone"
+                class="form-control"
+              />
+            </div>
+            <div class="form-group mb-3">
+              <button type="submit" class="form-control btn btn-primary btn-sm">
+                Register
+              </button>
+              <span style="color: red">{{ reg_res.message }}</span>
+              <div *ngIf="!reg_res.code">
+                <button
+                  type="button"
+                  class="form-control btn btn-primary btn-sm"
+                  (click)="loginPage()"
+                >
+                  Login
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
+  </div>
 </div>
