@@ -6,3 +6,19 @@
 .row {
   height: 100vh;
 }
+.p-r-10 {
+  padding-right: 10px;
+}
+.pull-right {
+  float: right;
+}
+
+.pull-left {
+  float: left;
+}
+
+.button-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

@@ -1,7 +1,12 @@
-<div class="container">
+<div class="container-fluid">
   <div class="row">
     <div class="col-md-12">
       <div class="card">
+        <div class="card-header">
+          <h6 class="card-title">
+            Users
+          </h6>
+        </div>
         <div class="card-body">
           <table class="table">
             <thead>
@@ -10,8 +15,8 @@
                 <th scope="col">Name</th>
                 <th scope="col">Email</th>
                 <th scope="col">Number</th>
-                <th>update</th>
-                <th>delete</th>
+                <th>Actions</th>
+                
               </tr>
             </thead>
             <tbody>
@@ -20,11 +25,9 @@
                 <td>{{ user.name }}</td>
                 <td>{{ user.email }}</td>
                 <td>{{ user.phone }}</td>
-                <td><button class="btn btn-warning">U</button></td>
-                <td>
-                  <button class="btn btn-danger" (click)="deleteUser(user._id)">
-                    X
-                  </button>
+                  <td>
+                    <i class="bi bi-trash" (click)="deleteUser(user._id)"></i>
+                  
                 </td>
               </tr>
             </tbody>

@@ -15,6 +15,7 @@ import { DashboardComponent } from './views/dashboard/dashboard.component';
 import { TokenService } from './providers/token.service';
 import { TaskComponent } from './views/task/task.component';
 import { TaskService } from './providers/task.service';
+import { PasswordChangeComponent } from './views/password-change/password-change.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +26,7 @@ import { TaskService } from './providers/task.service';
     OrdersComponent,
     DashboardComponent,
     TaskComponent,
+    PasswordChangeComponent,
   ],
   imports: [
     BrowserModule,

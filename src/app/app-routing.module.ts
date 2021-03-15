@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './views/dashboard/dashboard.component';
 import { LoginComponent } from './views/login/login.component';
+import { PasswordChangeComponent } from './views/password-change/password-change.component';
 import { ProductListComponent } from './views/product-list/product-list.component';
 import { RegisterComponent } from './views/register/register.component';
 import { TaskComponent } from './views/task/task.component';
@@ -31,6 +32,10 @@ const routes: Routes = [
   {
     path: 'tasks',
     component: TaskComponent
+  },
+  {
+    path: 'forget-password',
+    component: PasswordChangeComponent
   }
 ];
 
