@@ -14,11 +14,6 @@ export class LoginComponent implements OnInit {
     email: '',
     password : ''
   }
-  log_res:any={
-    code:0,
-    message : ''
-  }
-  everify:boolean = false;
   constructor(private _authService:AuthService, private _route:Router) { }
 
   ngOnInit(): void {

@@ -22,4 +22,12 @@ export class AuthService {
   deleteUser(userID:any){
     return this._http.delete<response>(uri+'/users/'+userID)
   }
+
+  verifyEmail(obj:any){
+    return this._http.post<response>(uri+'/users/verify',obj)
+  }
+
+  changePassword(obj:any){
+    return this._http.post<response>(uri+'/users/changePassword',obj)
+  }
 }
