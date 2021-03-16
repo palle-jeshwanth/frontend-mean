@@ -15,6 +15,14 @@ export class AuthService {
     return this._http.post<response>(uri + '/users/login', user);
   }
 
+  logout() {
+    return this._http.post<response>(uri + '/users/logout', {});
+  }
+
+  logoutAll() {
+    return this._http.post<response>(uri + '/users/logoutAll', {});
+  }
+
   getDetails() {
     return this._http.get<response>(uri + '/users');
   }
@@ -29,5 +37,10 @@ export class AuthService {
 
   changePassword(obj:any){
     return this._http.post<response>(uri+'/users/changePassword',obj)
+  }
+
+  resetPassword(obj:any){
+    return this._http.post<response>(uri+'/users/resetpassword',obj)
+
   }
 }

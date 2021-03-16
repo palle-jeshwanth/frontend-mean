@@ -39,7 +39,6 @@ export class LoginComponent implements OnInit {
 
   passVerify(obj:any){ 
     console.log(obj)
-    this.everify = !this.everify
     if(obj.code){
       this._route.navigate(['dashboard'])
     }
