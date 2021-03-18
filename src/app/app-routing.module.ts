@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './shared/guards/auth.service';
 import { DashboardComponent } from './views/dashboard/dashboard.component';
 import { LoginComponent } from './views/login/login.component';
 import { PasswordChangeComponent } from './views/password-change/password-change.component';
@@ -11,7 +12,7 @@ import { TaskComponent } from './views/task/task.component';
 const routes: Routes = [
   {
     path:'',
-    redirectTo:'/products',
+    redirectTo:'/login',
     pathMatch:'full'
   },
   {
@@ -28,7 +29,8 @@ const routes: Routes = [
   },
   {
     path: 'dashboard',
-    component: DashboardComponent
+    component: DashboardComponent,
+    canActivate:[AuthGuard]
   },
   {
     path: 'tasks',
@@ -40,7 +42,8 @@ const routes: Routes = [
   },
   {
     path: 'profile',
-    component: ProfileComponent
+    component: ProfileComponent,
+    canActivate:[AuthGuard]
   }
 ];
 

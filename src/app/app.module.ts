@@ -16,6 +16,8 @@ import { TokenService } from './providers/token.service';
 import { TaskComponent } from './views/task/task.component';
 import { TaskService } from './providers/task.service';
 import { PasswordChangeComponent } from './views/password-change/password-change.component';
+import { HeaderComponent } from './views/header/header.component';
+import { AuthGuard } from './shared/guards/auth.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,6 +29,7 @@ import { PasswordChangeComponent } from './views/password-change/password-change
     DashboardComponent,
     TaskComponent,
     PasswordChangeComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,6 +46,7 @@ import { PasswordChangeComponent } from './views/password-change/password-change
       useClass: TokenService,
       multi: true,
     },
+    AuthGuard
   ],
   bootstrap: [AppComponent],
 })

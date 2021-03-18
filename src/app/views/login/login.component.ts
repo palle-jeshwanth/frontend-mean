@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
     this._authService.login(this.user).subscribe((res)=>{
       const result = res
       if(result.code){
-        sessionStorage.setItem('authToken',result.data)
+        sessionStorage.setItem('authToken',result.data);
         this._route.navigate(['dashboard']);
       }
       

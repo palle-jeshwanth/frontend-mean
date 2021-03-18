@@ -1,33 +1,58 @@
-<div class="container-fluid">
-  <div class="card">
-    <div class="card-body">
-      <form (ngSubmit)="resetPassword()">
-        <div class="form-group mb-3">
-          <input
-            type="password"
-            class="form-control"
-            name="oldPassword"
-            [(ngModel)]="password.oldPassword"
-            placeholder="Old Password"
-          />
-        </div>
 
-        <div class="form-group mb-3">
-          <input
-            type="password"
-            class="form-control"
-            name="newPassword"
-            [(ngModel)]="password.newPassword"
-            placeholder="New Password"
-          />
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">
+          <h6 class="card-title">
+            My Profile
+          </h6>
         </div>
-        <div class="form-group mb-3">
-          <button type="submit" class="btn btn-primary">Change Password</button>
+        <div class="card-body">
+            <ul>
+              <li>Name  : {{me.name}} </li>
+              <li>Email : {{me.email}}</li>
+              <li>Phone : {{me.phone}}</li>
+            </ul>
+            <button class="btn btn-success btn-sm form-control mb-3 " type="button" (click)="logout()">Logout</button>
+            <button class="btn btn-success btn-sm form-control" type="button" (click)="logoutAll()">LogoutAll</button>
+
         </div>
-      </form>
+      </div>
     </div>
-    <button class="btn btn-primary" (click)="logout()">LogOut</button>
-    <button class="btn btn-primary" (click)="logoutAll()">LogOutAll</button>
+    <div class="col-md-6">
+        <div class="card">
+          <div class="card-header">
+            <h6 class="card-title">
+             Reset Password
+            </h6>
+          </div>
+          <div class="card-body">
+            <form (ngSubmit)="resetPassword()">
+              <div class="form-group mb-3">
+                <input
+                  type="password"
+                  class="form-control"
+                  name="oldPassword"
+                  [(ngModel)]="password.oldPassword"
+                  placeholder="Old Password"
+                />
+              </div>
+          
+              <div class="form-group mb-3">
+                <input
+                  type="password"
+                  class="form-control"
+                  name="newPassword"
+                  [(ngModel)]="password.newPassword"
+                  placeholder="New Password"
+                />
+              </div>
+              
+              <button class="btn btn-success btn-sm form-control mb-3 " type="submit">Update Password</button>
+            </form>
+          </div>
+        </div>
   </div>
 </div>
-

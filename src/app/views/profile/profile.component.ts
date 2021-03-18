@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/providers/auth.service';
 
 @Component({
@@ -6,14 +7,33 @@ import { AuthService } from 'src/app/providers/auth.service';
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss'],
 })
-export class ProfileComponent implements OnInit {
+export class ProfileComponent {
   password: any = {
     oldPassword: '',
     newPassword: '',
   };
-  constructor(private authService: AuthService) {}
 
-  ngOnInit(): void {}
+  constructor(private authService: AuthService,private _router:Router) {
+    this.getMe()
+  }
+  me:any = {
+    name:'',
+    emai:'',
+    phone:''
+  }
+  getMe(){
+    this.authService.getMe().subscribe(
+      (response)=>{
+        const result = response;
+        if(result.code){
+          this.me  = {...result.data }
+        }
+      },
+      (err)=>{
+
+      }
+    )
+  }
 
   resetPassword() {
     this.authService.resetPassword(this.password).subscribe(
@@ -29,11 +49,14 @@ export class ProfileComponent implements OnInit {
   logout() {
     this.authService.logout().subscribe(
       (res) => {
-        console.log(res);
-        sessionStorage.clear();
+        const result =  res;
+        if(result.code){
+          sessionStorage.clear();
+          this._router.navigate(['/login'])
+        }
       },
       (error) => {
-        console.log(error, 'logout()');
+        console.error(error, 'logout()');
       }
     );
   }
@@ -41,11 +64,14 @@ export class ProfileComponent implements OnInit {
   logoutAll() {
     this.authService.logoutAll().subscribe(
       (res) => {
-        console.log(res);
-        sessionStorage.clear();
+        const result =  res;
+        if(result.code){
+          sessionStorage.clear();
+          this._router.navigate(['/login'])
+        }
       },
       (error) => {
-        console.log(error, 'logoutAll()');
+        console.error(error, 'logoutAll()');
       }
     );
   }
